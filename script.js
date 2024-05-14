@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  new fullpage('#fullpage', {
-    autoScrolling: true,
-    scrollHorizontally: true
-  });
-
   const convertBtn = document.getElementById('convertBtn');
   const gaaRateCheckbox = document.getElementById('gaaRateCheckbox');
   const amountInput = document.getElementById('amount');
@@ -21,38 +16,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let result;
 
-    if (gaaRateEnabled) {
-      if (fromCurrency === 'dollar' && toCurrency === 'unbound') {
-        result = amount * 240;
-      } else if (fromCurrency === 'unbound' && toCurrency === 'dollar') {
-        result = amount / 240;
-      } else if (fromCurrency === 'unbound' && toCurrency === 'bound') {
-        result = amount * 1.5;
-      } else if (fromCurrency === 'bound' && toCurrency === 'unbound') {
-        result = amount / 1.5;
-      } else if (fromCurrency === 'dollar' && toCurrency === 'gold') {
-        result = amount * 333333.33;
-      } else if (fromCurrency === 'gold' && toCurrency === 'dollar') {
-        result = amount / 333333.33;
-      } else {
-        result = amount;
+    const rates = {
+      dollar: {
+        unbound: gaaRateEnabled ? 240 : 60,
+        gold: 333333.33
+      },
+      unbound: {
+        dollar: gaaRateEnabled ? 1/240 : 1/60,
+        bound: 1.5
+      },
+      bound: {
+        unbound: 1/1.5
+      },
+      gold: {
+        dollar: 1/333333.33
       }
+    };
+
+    if (rates[fromCurrency] && rates[fromCurrency][toCurrency]) {
+      result = amount * rates[fromCurrency][toCurrency];
     } else {
-      if (fromCurrency === 'dollar' && toCurrency === 'unbound') {
-        result = amount * 60;
-      } else if (fromCurrency === 'unbound' && toCurrency === 'dollar') {
-        result = amount / 60;
-      } else if (fromCurrency === 'unbound' && toCurrency === 'bound') {
-        result = amount * 1.5;
-      } else if (fromCurrency === 'bound' && toCurrency === 'unbound') {
-        result = amount / 1.5;
-      } else if (fromCurrency === 'dollar' && toCurrency === 'gold') {
-        result = amount * 333333.33;
-      } else if (fromCurrency === 'gold' && toCurrency === 'dollar') {
-        result = amount / 333333.33;
-      } else {
-        result = amount;
-      }
+      result = amount;
     }
 
     if (toCurrency === 'dollar') {

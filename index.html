@@ -2,44 +2,45 @@
 <html>
 <head>
   <title>Currency Converter</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="fullpage">
-    <div class="section">
-      <div class="container">
-        <h1>Currency Converter</h1>
-        <label for="amount">Enter amount:</label>
-        <input type="number" id="amount" placeholder="Amount">
-        <br>
-        <label for="from">From:</label>
-        <select id="from">
-          <option value="dollar">Dollar</option>
-          <option value="unbound">Unbound Ingots</option>
-          <option value="bound">Bound Ingots</option>
-          <option value="gold">Gold Coins</option>
-        </select>
-        <br>
-        <label for="to">To:</label>
-        <select id="to">
-          <option value="dollar">Dollar</option>
-          <option value="unbound">Unbound Ingots</option>
-          <option value="bound">Bound Ingots</option>
-          <option value="gold">Gold Coins</option>
-        </select>
-        <br>
-        <button id="convertBtn">Convert</button>
-        <label class="checkbox-label">
-          <input type="checkbox" id="gaaRateCheckbox">
-          GAA Rate
-        </label>
-        <p id="result"></p>
-      </div>
+  <div class="container">
+    <h1>Welcome to the Currency Converter</h1>
+    <p class="description">Easily convert between Dollars, Unbound, Bound, and Gold currencies.</p>
+    <div class="form-group">
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" placeholder="Enter amount" required>
     </div>
+    <div class="form-group">
+      <label for="from">From:</label>
+      <select id="from">
+        <option value="dollar">Dollar</option>
+        <option value="unbound">Unbound</option>
+        <option value="bound">Bound</option>
+        <option value="gold">Gold</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="to">To:</label>
+      <select id="to">
+        <option value="dollar">Dollar</option>
+        <option value="unbound">Unbound</option>
+        <option value="bound">Bound</option>
+        <option value="gold">Gold</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="checkbox-label">
+        <input type="checkbox" id="gaaRateCheckbox">
+        Use GAA Rate
+      </label>
+    </div>
+    <button id="convertBtn">Convert</button>
+    <p id="result" class="result"></p>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
