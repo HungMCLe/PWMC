@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const gaaRateEnabled = gaaRateCheckbox.checked;
 
     let result;
-    
+
     const rates = {
       dollar: {
-        unbound: gaaRateEnabled ? 240 : 60 / 28,
+        unbound: gaaRateEnabled ? 214.285714286 : 60,
         gold: 333333.33
       },
       unbound: {
-        dollar: gaaRateEnabled ? 1/240 : 28 / 60,
+        dollar: gaaRateEnabled ? 1/214.285714286 : 1/60,
         bound: 1.5
       },
       bound: {
@@ -32,15 +32,17 @@ document.addEventListener('DOMContentLoaded', function() {
         dollar: 1/333333.33
       }
     };
-    
+
     if (rates[fromCurrency] && rates[fromCurrency][toCurrency]) {
       result = amount * rates[fromCurrency][toCurrency];
     } else {
       result = amount;
     }
-    
+
+    result = Math.round(result);
+
     if (toCurrency === 'dollar') {
-      resultP.textContent = `Result: $${result.toFixed(2)}`;
+      resultP.textContent = `Result: $${result}`;
     } else {
       resultP.textContent = `Result: ${result} ${toCurrency}`;
     }
