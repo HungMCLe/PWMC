@@ -18,18 +18,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const rates = {
       dollar: {
-        unbound: gaaRateEnabled ? 240 : 60,
+        unbound: gaaRateEnabled ? 28 * (6000 / 28) : 60, // Updated GAA rate calculation
         gold: 333333.33
       },
       unbound: {
-        dollar: gaaRateEnabled ? 1/240 : 1/60,
+        dollar: gaaRateEnabled ? 1 / (28 * (6000 / 28)) : 1 / 60, // Updated GAA rate calculation
         bound: 1.5
       },
       bound: {
-        unbound: 1/1.5
+        unbound: 1 / 1.5
       },
       gold: {
-        dollar: 1/333333.33
+        dollar: 1 / 333333.33
       }
     };
 
