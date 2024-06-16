@@ -15,30 +15,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const gaaRateEnabled = gaaRateCheckbox.checked;
 
     let result;
-
+    
     const rates = {
       dollar: {
-        unbound: gaaRateEnabled ? 28 * (6000 / 28) : 60, // Updated GAA rate calculation
+        unbound: gaaRateEnabled ? 240 : 6000 / 28,
         gold: 333333.33
       },
       unbound: {
-        dollar: gaaRateEnabled ? 1 / (28 * (6000 / 28)) : 1 / 60, // Updated GAA rate calculation
+        dollar: gaaRateEnabled ? 1/240 : 28 / 6000,
         bound: 1.5
       },
       bound: {
-        unbound: 1 / 1.5
+        unbound: 1/1.5
       },
       gold: {
-        dollar: 1 / 333333.33
+        dollar: 1/333333.33
       }
     };
-
+    
     if (rates[fromCurrency] && rates[fromCurrency][toCurrency]) {
       result = amount * rates[fromCurrency][toCurrency];
     } else {
       result = amount;
     }
-
+    
     if (toCurrency === 'dollar') {
       resultP.textContent = `Result: $${result.toFixed(2)}`;
     } else {
