@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const rates = {
       dollar: {
-        unbound: gaaRateEnabled ? 240 : 6000 / 28,
+        unbound: gaaRateEnabled ? 240 : 60 / 28,
         gold: 333333.33
       },
       unbound: {
