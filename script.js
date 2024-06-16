@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gold: 333333.33
       },
       unbound: {
-        dollar: gaaRateEnabled ? 1/240 : 28 / 6000,
+        dollar: gaaRateEnabled ? 1/240 : 28 / 60,
         bound: 1.5
       },
       bound: {
