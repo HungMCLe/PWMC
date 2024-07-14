@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
       result = amount;
     }
 
-    result = Math.round(result);
-
     if (toCurrency === 'dollar') {
       resultP.textContent = `Result: $${result}`;
     } else {
