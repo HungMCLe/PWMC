@@ -39,10 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
       result = amount;
     }
 
+    // Ensure result is not rounded
+    const resultStr = result.toString();
+
     if (toCurrency === 'dollar') {
-      resultP.textContent = `Result: $${result.toFixed(6)}`;
+      resultP.textContent = `Result: $${resultStr}`;
     } else {
-      resultP.textContent = `Result: ${result.toFixed(6)} ${toCurrency}`;
+      resultP.textContent = `Result: ${resultStr} ${toCurrency}`;
     }
   }
 });
