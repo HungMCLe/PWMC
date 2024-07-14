@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (toCurrency === 'dollar') {
-      resultP.textContent = `Result: $${result}`;
+      resultP.textContent = `Result: $${result.toFixed(6)}`;
     } else {
-      resultP.textContent = `Result: ${result} ${toCurrency}`;
+      resultP.textContent = `Result: ${result.toFixed(6)} ${toCurrency}`;
     }
   }
 });
